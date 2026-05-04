@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taco Day: The Final Boss — June 20, 2026</title>
+  <title>Taco Day: The Final Boss, June 20, 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -69,6 +69,31 @@
       padding: 5px 16px;
       border-radius: 999px;
       margin-bottom: 20px;
+    }
+
+    .hero-news {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(22px, 4vw, 28px);
+      color: var(--brown);
+      margin-bottom: 14px;
+    }
+
+    .hero-context {
+      font-size: clamp(15px, 2.5vw, 18px);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    .hero-invited {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 6px;
     }
 
     .hero h1 {
@@ -184,16 +209,21 @@
       font-weight: 500;
     }
 
-    .deadline-banner {
-      margin-top: 24px;
-      background: linear-gradient(135deg, var(--orange) 0%, #D4652A 100%);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 16px 24px;
-      font-size: 16px;
-      font-weight: 600;
+    .deadline-note {
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--muted);
       text-align: center;
-      letter-spacing: 0.01em;
+      font-style: italic;
+    }
+
+    .about-subheading {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--orange-dk);
+      margin-top: 22px;
+      margin-bottom: 6px;
     }
 
     /* ─── RSVP FORM ─────────────────────────────────────────── */
@@ -574,8 +604,9 @@
     </svg>
 
     <div class="hero-inner">
-      <span class="hero-eyebrow">You're invited 🌮</span>
-
+      <p class="hero-news">Did you hear the news? 🌏</p>
+      <p class="hero-context">Mercedes and I are trying our hand at living in New Zealand this upcoming year, and before we go, we'd love to gather our people 💛</p>
+      <p class="hero-invited">You're invited to</p>
       <h1>TACO<br/><em>DAY</em></h1>
       <p class="hero-subtitle">The Final Boss</p>
 
@@ -619,28 +650,32 @@
     <h2 id="about-heading">What's going down 🌿</h2>
     <div class="about-card">
       <p>
-        Taco Day is our annual tradition of celebrating the summer solstice the right way — outside,
-        together, soaking in the longest day of the year with friends and loved ones. It's a day to
-        slow down, gather, and bring summer in with the people who matter most.
+        Taco Day is a little tradition to celebrate the summer solstice together, making the most
+        of the longest day of the year. The name is a nod to past celebrations that famously
+        involved tacos, but what it's always been about is good company, outdoors. We'd love to
+        see you!
       </p>
-      <p style="margin-top: 14px;">
-        New to Taco Day? The name is a nod to a celebration that once famously involved tacos —
-        but don't worry, you don't need to know the lore to belong here. What it's really about
-        is good company, good vibes, and being outside together.
+
+      <h3 class="about-subheading">What to bring 🧺</h3>
+      <p>
+        We'll provide some food and beverages and will share details once we have RSVPs. You're
+        welcome to bring any snacks or drinks you love, especially if you have specific dietary
+        needs or favorites. Coming in from out of town? No pressure to bring a thing. If you do
+        plan to bring something, mention it in your RSVP so we can coordinate.
       </p>
-      <p style="margin-top: 14px;">
-        We'll be providing some food and beverages, but we wholeheartedly welcome you to bring
-        whatever you can't live without — especially if you have specific dietary needs or
-        preferences. If you're coming in from out of town, no pressure at all to bring a thing.
-        If you do plan to bring food or drinks, please mention it in your RSVP so we can plan
-        accordingly. And whether you're coming or not, please RSVP as soon as you know —
-        the earlier we hear from you, the better we can plan for everyone.
+
+      <h3 class="about-subheading">How to prepare 🧥</h3>
+      <p>
+        We'll be on grass, so bring your favorite picnic blanket or lawn chairs. Public restrooms
+        are available nearby. A summer solstice in Golden Gate Park has a personality of its own
+        (some say the coldest winter is a summer in San Francisco), so check the forecast and
+        dress in layers. You'll likely need a jacket and sunscreen. We like using
+        <a href="https://mr-chilly.com/" target="_blank" rel="noopener"
+           style="color: var(--orange-dk); font-weight: 600;">Mr. Chilly</a>
+        on the day of, since weather in the Outer Richmond can be unpredictable. Pack for your
+        comfort and you'll be golden. Not sure what to expect? Reach out with questions!
       </p>
-      <p style="margin-top: 14px;">
-        Bring a blanket, a lawn chair, and an open mind. One heads-up: the summer solstice in
-        San Francisco has a personality of its own. Check the forecast and dress in layers — you
-        may need a jacket, sunscreen, or both. Pack accordingly and you'll be golden.
-      </p>
+
       <div class="welcome-icons">
         <span class="welcome-chip">👫 Partners welcome</span>
         <span class="welcome-chip">👧 Kids welcome</span>
@@ -650,9 +685,7 @@
         <span class="welcome-chip">🧥 Check the forecast</span>
         <span class="welcome-chip">☀️ Outdoor &amp; casual</span>
       </div>
-      <div class="deadline-banner">
-        RSVP by June 6, 2026 — two weeks before the big day 🗓️
-      </div>
+      <p class="deadline-note">📅 Please complete the form below to RSVP by June 6, 2026</p>
     </div>
   </section>
 
@@ -755,7 +788,7 @@
 
           <!-- decline note, shown when attending = no -->
           <div class="decline-msg" id="decline-msg" aria-live="polite">
-            We'll miss you 😢 Send your RSVP anyway so we know — and who knows, maybe you'll change your mind!
+            We'll miss you 😢 Send your RSVP anyway so we know, and who knows, maybe you'll change your mind!
           </div>
 
           <div style="margin-top: 28px;">
@@ -790,7 +823,7 @@
     <span class="taco-footer">🌮</span>
     <strong>Taco Day: The Final Boss</strong><br/>
     June 20, 2026 · Hellman Hollow · Golden Gate Park, SF · Tables 15 &amp; 16<br/><br/>
-    Questions? Reach out — you know who you are.
+    Questions? Reach out. You know who you are.
   </footer>
 
   <script>
