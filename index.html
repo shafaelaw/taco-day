@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taco Day: The Final Boss — June 20, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #FDF6E3;
+      --orange:    #E8823A;
+      --orange-dk: #C4642A;
+      --yellow:    #F2C94C;
+      --sage:      #6B9E6B;
+      --sage-lt:   #A8C5A0;
+      --brown:     #3B2F2F;
+      --muted:     #9E7B5A;
+      --card-bg:   #FFFDF5;
+      --radius:    16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ─── HERO ─────────────────────────────────────────────── */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #FFF3C4 0%, #FDDBA0 40%, #F5C07A 100%);
+      padding: 60px 24px 0;
+      text-align: center;
+    }
+
+    .sun {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 340px;
+      height: 340px;
+      opacity: 0.22;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(68px, 14vw, 120px);
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--brown);
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--orange);
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(22px, 4vw, 30px);
+      color: var(--muted);
+      margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .taco-svg {
+      margin: 28px auto 0;
+      display: block;
+      width: 140px;
+      height: 140px;
+      filter: drop-shadow(0 8px 24px rgba(232,130,58,0.28));
+    }
+
+    .hero-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 24px;
+      margin-top: 28px;
+      padding-bottom: 40px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brown);
+    }
+
+    .hero-details span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ─── GRASS DIVIDER ─────────────────────────────────────── */
+
+    .grass-divider {
+      display: block;
+      width: 100%;
+      margin-bottom: -2px;
+    }
+
+    /* ─── SECTIONS ──────────────────────────────────────────── */
+
+    .section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    /* ─── ABOUT CARD ────────────────────────────────────────── */
+
+    .about-card {
+      background: var(--card-bg);
+      border: 1.5px solid #EDD9A3;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+    }
+
+    .about-card p {
+      font-size: 17px;
+      color: var(--brown);
+      line-height: 1.75;
+    }
+
+    .welcome-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .welcome-chip {
+      background: #FFF8E7;
+      border: 1.5px solid #EDD9A3;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .deadline-banner {
+      margin-top: 24px;
+      background: linear-gradient(135deg, var(--orange) 0%, #D4652A 100%);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+
+    /* ─── RSVP FORM ─────────────────────────────────────────── */
+
+    .rsvp-section {
+      background: linear-gradient(180deg, #FFF8E7 0%, var(--cream) 100%);
+      border-top: 1.5px solid #EDD9A3;
+      border-bottom: 1.5px solid #EDD9A3;
+    }
+
+    .form-card {
+      background: #fff;
+      border: 1.5px solid #EDD9A3;
+      border-radius: var(--radius);
+      padding: 36px 36px;
+      box-shadow: 0 4px 32px rgba(59,47,47,0.07);
+    }
+
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 7px;
+    }
+
+    label .optional {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #DDD0B3;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: inherit;
+      background: #FFFDF8;
+      color: var(--brown);
+      transition: border-color 0.18s, box-shadow 0.18s;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(232,130,58,0.15);
+    }
+
+    textarea { resize: vertical; min-height: 90px; }
+
+    /* attendance radio */
+    .attendance-options {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .attendance-option {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .attendance-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .attendance-option label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 12px;
+      border: 2px solid #DDD0B3;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: center;
+      transition: border-color 0.18s, background 0.18s, color 0.18s;
+      background: #FFFDF8;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    .attendance-option input[type="radio"]:checked + label {
+      border-color: var(--orange);
+      background: #FFF3E6;
+      color: var(--orange-dk);
+    }
+
+    .attendance-option input[type="radio"]:focus-visible + label {
+      box-shadow: 0 0 0 3px rgba(232,130,58,0.25);
+    }
+
+    /* number stepper */
+    .stepper-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid #DDD0B3;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #FFFDF8;
+    }
+
+    .stepper button {
+      width: 42px;
+      height: 46px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: var(--orange);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+
+    .stepper button:hover { background: #FFF0E0; }
+    .stepper button:disabled { color: #CCC; cursor: default; }
+    .stepper button:disabled:hover { background: none; }
+
+    .stepper input[type="number"] {
+      flex: 1;
+      border: none;
+      background: none;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--brown);
+      padding: 0;
+      width: 0;
+      -moz-appearance: textfield;
+      outline: none;
+    }
+
+    .stepper input[type="number"]::-webkit-inner-spin-button,
+    .stepper input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+    /* pet checkbox */
+    .pet-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border: 1.5px solid #DDD0B3;
+      border-radius: 10px;
+      background: #FFFDF8;
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s;
+    }
+
+    .pet-row:has(input:checked) {
+      border-color: var(--sage);
+      background: #F0F7EE;
+    }
+
+    .pet-row input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--sage);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .pet-row-label {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--brown);
+      cursor: pointer;
+    }
+
+    /* conditional fields */
+    .conditional-fields {
+      display: none;
+      animation: fadeSlide 0.25s ease;
+    }
+
+    .conditional-fields.visible { display: block; }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .field-divider {
+      border: none;
+      border-top: 1.5px dashed #EDD9A3;
+      margin: 24px 0;
+    }
+
+    /* submit */
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, var(--orange) 0%, #D4652A 100%);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: opacity 0.18s, transform 0.12s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+    .submit-btn:disabled { opacity: 0.65; cursor: default; transform: none; }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* form state messages */
+    .form-success,
+    .form-error {
+      display: none;
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      text-align: center;
+    }
+
+    .form-success {
+      background: #EEF7EC;
+      border: 1.5px solid #A8C5A0;
+    }
+
+    .form-success .success-icon { font-size: 52px; margin-bottom: 12px; }
+
+    .form-success h3 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      color: var(--sage);
+      margin-bottom: 8px;
+    }
+
+    .form-success p { font-size: 15px; color: #4a6b47; }
+
+    .form-error {
+      background: #FFF0EC;
+      border: 1.5px solid #E8A07A;
+    }
+
+    .form-error p { font-size: 15px; color: #9B4B2A; margin-bottom: 14px; }
+
+    .retry-btn {
+      background: var(--orange);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .decline-msg {
+      display: none;
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: #FFF8E7;
+      border: 1.5px solid #EDD9A3;
+      border-radius: 12px;
+      font-size: 15px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ─── MAP ───────────────────────────────────────────────── */
+
+    .map-embed {
+      width: 100%;
+      height: 340px;
+      border-radius: var(--radius);
+      border: 1.5px solid #EDD9A3;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .map-note {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+
+    footer {
+      background: var(--brown);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 14px;
+    }
+
+    footer strong { color: rgba(255,255,255,0.9); }
+
+    footer .taco-footer { font-size: 22px; display: block; margin-bottom: 8px; }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────── */
+
+    @media (max-width: 560px) {
+      .form-card { padding: 24px 20px; }
+      .stepper-group { grid-template-columns: 1fr; }
+      .about-card { padding: 22px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HERO ════════════════════════════════════════════════ -->
+  <header class="hero">
+
+    <!-- background sun rays -->
+    <svg class="sun" viewBox="0 0 340 340" fill="none" aria-hidden="true">
+      <circle cx="170" cy="170" r="80" fill="#F2C94C"/>
+      <g stroke="#F2C94C" stroke-width="6" stroke-linecap="round" opacity="0.8">
+        <line x1="170" y1="10"  x2="170" y2="60"/>
+        <line x1="170" y1="280" x2="170" y2="330"/>
+        <line x1="10"  y1="170" x2="60"  y2="170"/>
+        <line x1="280" y1="170" x2="330" y2="170"/>
+        <line x1="51"  y1="51"  x2="86"  y2="86"/>
+        <line x1="254" y1="254" x2="289" y2="289"/>
+        <line x1="289" y1="51"  x2="254" y2="86"/>
+        <line x1="86"  y1="254" x2="51"  y2="289"/>
+        <line x1="110" y1="18"  x2="124" y2="66"/>
+        <line x1="230" y1="274" x2="216" y2="322"/>
+        <line x1="18"  y1="230" x2="66"  y2="216"/>
+        <line x1="274" y1="110" x2="322" y2="124"/>
+        <line x1="18"  y1="110" x2="66"  y2="124"/>
+        <line x1="274" y1="230" x2="322" y2="216"/>
+        <line x1="110" y1="322" x2="124" y2="274"/>
+        <line x1="230" y1="18"  x2="216" y2="66"/>
+      </g>
+    </svg>
+
+    <div class="hero-inner">
+      <span class="hero-eyebrow">You're invited 🌮</span>
+
+      <h1>TACO<br/><em>DAY</em></h1>
+      <p class="hero-subtitle">The Final Boss</p>
+
+      <!-- Taco SVG illustration -->
+      <svg class="taco-svg" viewBox="0 0 140 140" fill="none" aria-label="Taco illustration">
+        <!-- shell -->
+        <path d="M20 95 Q70 10 120 95" fill="#F2C94C" stroke="#C9A030" stroke-width="3"/>
+        <path d="M20 95 Q70 30 120 95 L115 100 Q70 40 25 100 Z" fill="#E8B030"/>
+        <!-- lettuce -->
+        <path d="M28 92 Q45 75 65 85 Q80 70 100 83 Q110 88 115 92" stroke="#6B9E6B" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <!-- tomato -->
+        <circle cx="55" cy="84" r="7" fill="#E86B6B"/>
+        <circle cx="70" cy="80" r="5" fill="#E86B6B"/>
+        <!-- cheese -->
+        <path d="M75 82 Q88 74 100 80 L98 86 Q87 80 75 88 Z" fill="#F2C94C" opacity="0.9"/>
+        <!-- meat -->
+        <path d="M38 88 Q52 78 66 86 Q70 82 78 80 L80 88 Q72 86 68 90 Q52 84 40 94 Z" fill="#C4742A" opacity="0.85"/>
+        <!-- sour cream drizzle -->
+        <path d="M60 78 Q65 72 70 78 Q74 72 79 78" stroke="rgba(255,255,255,0.85)" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <!-- shell bottom fold -->
+        <path d="M25 100 Q70 115 115 100" stroke="#C9A030" stroke-width="2.5" fill="none"/>
+      </svg>
+
+      <div class="hero-details">
+        <span>📅 Saturday, June 20, 2026</span>
+        <span>⏰ 12 noon – 4 p.m.</span>
+        <span>📍 Hellman Hollow · Golden Gate Park</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- grass divider -->
+  <svg class="grass-divider" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 60 L0 40 Q30 10 60 35 Q90 55 120 30 Q150 10 180 38 Q210 58 240 28 Q270 5 300 35 Q330 58 360 32 Q390 10 420 38 Q450 60 480 30 Q510 8 540 36 Q570 58 600 28 Q630 5 660 35 Q690 58 720 30 Q750 8 780 38 Q810 60 840 32 Q870 10 900 36 Q930 58 960 28 Q990 5 1020 35 Q1050 58 1080 30 Q1110 8 1140 38 Q1170 60 1200 32 Q1230 10 1260 36 Q1290 58 1320 28 Q1350 5 1380 35 Q1410 58 1440 30 L1440 60 Z" fill="#6B9E6B"/>
+    <path d="M0 60 L0 48 Q20 28 40 45 Q60 58 80 40 Q100 25 120 48 Q140 60 160 42 Q180 28 200 50 Q220 60 240 44 Q260 30 280 50 Q300 62 320 46 Q340 30 360 50 Q380 62 400 46 Q420 30 440 50 Q460 62 480 46 Q500 32 520 52 Q540 62 560 46 Q580 30 600 50 Q620 62 640 46 Q660 30 680 52 Q700 62 720 46 Q740 32 760 52 Q780 62 800 46 Q820 32 840 52 Q860 62 880 46 Q900 30 920 50 Q940 62 960 46 Q980 30 1000 50 Q1020 62 1040 46 Q1060 30 1080 50 Q1100 62 1120 46 Q1140 32 1160 52 Q1180 62 1200 46 Q1220 32 1240 50 Q1260 62 1280 46 Q1300 30 1320 50 Q1340 62 1360 46 Q1390 30 1440 50 L1440 60 Z" fill="#5A8C5A"/>
+  </svg>
+
+  <!-- ═══ ABOUT ══════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="about-heading">
+    <p class="section-label">The Details</p>
+    <h2 id="about-heading">What's going down 🌿</h2>
+    <div class="about-card">
+      <p>
+        Taco Day is our annual tradition of celebrating the summer solstice the right way — outside,
+        together, soaking in the longest day of the year with friends and loved ones. It's a day to
+        slow down, gather, and bring summer in with the people who matter most.
+      </p>
+      <p style="margin-top: 14px;">
+        New to Taco Day? The name is a nod to a celebration that once famously involved tacos —
+        but don't worry, you don't need to know the lore to belong here. What it's really about
+        is good company, good vibes, and being outside together.
+      </p>
+      <p style="margin-top: 14px;">
+        We'll be providing some food and beverages, but we wholeheartedly welcome you to bring
+        whatever you can't live without — especially if you have specific dietary needs or
+        preferences. If you're coming in from out of town, no pressure at all to bring a thing.
+        If you do plan to bring food or drinks, please mention it in your RSVP so we can plan
+        accordingly. And whether you're coming or not, please RSVP as soon as you know —
+        the earlier we hear from you, the better we can plan for everyone.
+      </p>
+      <p style="margin-top: 14px;">
+        Bring a blanket, a lawn chair, and an open mind. One heads-up: the summer solstice in
+        San Francisco has a personality of its own. Check the forecast and dress in layers — you
+        may need a jacket, sunscreen, or both. Pack accordingly and you'll be golden.
+      </p>
+      <div class="welcome-icons">
+        <span class="welcome-chip">👫 Partners welcome</span>
+        <span class="welcome-chip">👧 Kids welcome</span>
+        <span class="welcome-chip">🐾 Pets welcome</span>
+        <span class="welcome-chip">🌮 Snacks &amp; drinks provided</span>
+        <span class="welcome-chip">🧺 Bring your favorites too</span>
+        <span class="welcome-chip">🧥 Check the forecast</span>
+        <span class="welcome-chip">☀️ Outdoor &amp; casual</span>
+      </div>
+      <div class="deadline-banner">
+        RSVP by June 6, 2026 — two weeks before the big day 🗓️
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RSVP FORM ════════════════════════════════════════════ -->
+  <section class="rsvp-section" aria-labelledby="rsvp-heading">
+    <div class="section">
+      <p class="section-label">RSVP</p>
+      <h2 id="rsvp-heading">Are you in? 🎉</h2>
+
+      <div class="form-card" id="form-card">
+
+        <!-- SUCCESS STATE -->
+        <div class="form-success" id="form-success" role="alert" aria-live="polite">
+          <div class="success-icon">🌮</div>
+          <h3 id="success-heading">See you there!</h3>
+          <p id="success-message">Your RSVP has been received. Get ready for the best taco day of your life.</p>
+        </div>
+
+        <!-- ERROR STATE -->
+        <div class="form-error" id="form-error" role="alert" aria-live="polite">
+          <p>Something went wrong sending your RSVP. Please try again.</p>
+          <button class="retry-btn" onclick="resetForm()">Try again</button>
+        </div>
+
+        <!-- THE FORM -->
+        <form id="rsvp-form" novalidate>
+
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="First &amp; last name" required autocomplete="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
+          </div>
+
+          <div class="form-group">
+            <label>Will you be there?</label>
+            <div class="attendance-options" role="radiogroup" aria-label="Attendance">
+              <div class="attendance-option">
+                <input type="radio" name="attending" id="attend-yes" value="yes" required />
+                <label for="attend-yes">Hell yes 🌮</label>
+              </div>
+              <div class="attendance-option">
+                <input type="radio" name="attending" id="attend-no" value="no" />
+                <label for="attend-no">Can't make it 😢</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONDITIONAL — shown only when attending = yes -->
+          <div class="conditional-fields" id="yes-fields" aria-hidden="true">
+            <hr class="field-divider" />
+
+            <div class="form-group">
+              <label for="total-count">Total people in your party 🎉</label>
+              <div class="stepper" style="max-width: 180px;">
+                <button type="button" onclick="stepChange('total', -1)" aria-label="Decrease total">−</button>
+                <input type="number" id="total-count" name="total" value="1" min="1" max="40" readonly aria-label="Total party size" />
+                <button type="button" onclick="stepChange('total', +1)" aria-label="Increase total">+</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Breakdown <span class="optional">(optional)</span></label>
+              <div class="stepper-group">
+                <div>
+                  <label for="adults-count" style="font-size:13px; margin-bottom:5px;">Adults 🧑</label>
+                  <div class="stepper">
+                    <button type="button" onclick="stepChange('adults',  -1)" aria-label="Decrease adults">−</button>
+                    <input type="number" id="adults-count" name="adults" value="1" min="1" max="20" readonly aria-label="Number of adults" />
+                    <button type="button" onclick="stepChange('adults', +1)" aria-label="Increase adults">+</button>
+                  </div>
+                </div>
+                <div>
+                  <label for="kids-count" style="font-size:13px; margin-bottom:5px;">Kids 👧</label>
+                  <div class="stepper">
+                    <button type="button" onclick="stepChange('kids', -1)" aria-label="Decrease kids">−</button>
+                    <input type="number" id="kids-count" name="kids" value="0" min="0" max="20" readonly aria-label="Number of kids" />
+                    <button type="button" onclick="stepChange('kids', +1)" aria-label="Increase kids">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Bringing a furry friend?</label>
+              <label class="pet-row" for="pet-check">
+                <input type="checkbox" id="pet-check" name="pet" value="yes" />
+                <span class="pet-row-label">🐾 Yes, a pet is coming with me!</span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <label for="note">Note for the host <span class="optional">(optional)</span></label>
+              <textarea id="note" name="note" placeholder="Any dietary needs, excitement, inside jokes…"></textarea>
+            </div>
+          </div>
+
+          <!-- decline note, shown when attending = no -->
+          <div class="decline-msg" id="decline-msg" aria-live="polite">
+            We'll miss you 😢 Send your RSVP anyway so we know — and who knows, maybe you'll change your mind!
+          </div>
+
+          <div style="margin-top: 28px;">
+            <button type="submit" class="submit-btn" id="submit-btn">
+              <span id="btn-text">Send RSVP 🌮</span>
+              <span class="spinner" id="spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MAP ══════════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="map-heading">
+    <p class="section-label">Getting There</p>
+    <h2 id="map-heading">Find us ☀️</h2>
+    <div class="map-embed">
+      <iframe
+        src="https://maps.google.com/maps?q=Hellman+Hollow+Golden+Gate+Park+San+Francisco+CA&output=embed"
+        loading="lazy"
+        allowfullscreen
+        title="Map showing Hellman Hollow in Golden Gate Park, San Francisco"
+      ></iframe>
+    </div>
+    <p class="map-note">Hellman Hollow, Golden Gate Park, San Francisco · Tables 15 &amp; 16 · Look for the taco flag 🌮</p>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer>
+    <span class="taco-footer">🌮</span>
+    <strong>Taco Day: The Final Boss</strong><br/>
+    June 20, 2026 · Hellman Hollow · Golden Gate Park, SF · Tables 15 &amp; 16<br/><br/>
+    Questions? Reach out — you know who you are.
+  </footer>
+
+  <script>
+    // ─── CONFIG ──────────────────────────────────────────────────
+    // After deploying your Google Apps Script, paste the URL below:
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwftZtgsd20BDdnFv-_bKcnsRpkdhuddAA4gTJQb0U-WOOlY72b0tTgIJl0XDz3w0A8-g/exec';
+
+    // ─── STEPPER ─────────────────────────────────────────────────
+    function stepChange(field, delta) {
+      const input = document.getElementById(field + '-count');
+      const min   = parseInt(input.min, 10);
+      const max   = parseInt(input.max, 10);
+      const next  = Math.min(max, Math.max(min, parseInt(input.value, 10) + delta));
+      input.value = next;
+      // disable minus button at min
+      const parent = input.closest('.stepper');
+      parent.querySelectorAll('button')[0].disabled = (next <= min);
+    }
+
+    // init: disable adults minus at 1, kids minus at 0
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('#total-count').closest('.stepper').querySelectorAll('button')[0].disabled  = true;
+      document.querySelector('#adults-count').closest('.stepper').querySelectorAll('button')[0].disabled = true;
+      document.querySelector('#kids-count').closest('.stepper').querySelectorAll('button')[0].disabled  = true;
+    });
+
+    // ─── ATTENDANCE TOGGLE ────────────────────────────────────────
+    document.querySelectorAll('input[name="attending"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const yesFields  = document.getElementById('yes-fields');
+        const declineMsg = document.getElementById('decline-msg');
+        const btnText    = document.getElementById('btn-text');
+
+        if (radio.value === 'yes') {
+          yesFields.classList.add('visible');
+          yesFields.setAttribute('aria-hidden', 'false');
+          declineMsg.style.display = 'none';
+          btnText.textContent = 'Count me in! 🌮';
+        } else {
+          yesFields.classList.remove('visible');
+          yesFields.setAttribute('aria-hidden', 'true');
+          declineMsg.style.display = 'block';
+          btnText.textContent = "Send RSVP 😢";
+        }
+      });
+    });
+
+    // ─── FORM SUBMIT ─────────────────────────────────────────────
+    document.getElementById('rsvp-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const form      = e.target;
+      const btn       = document.getElementById('submit-btn');
+      const spinner   = document.getElementById('spinner');
+      const btnText   = document.getElementById('btn-text');
+
+      // basic validation
+      const name     = form.name.value.trim();
+      const email    = form.email.value.trim();
+      const attending = form.attending ? form.attending.value : null;
+
+      if (!name || !email || !attending) {
+        alert('Please fill in your name, email, and whether you\'re attending.');
+        return;
+      }
+
+      const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRe.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // set loading state
+      btn.disabled   = true;
+      spinner.style.display = 'block';
+      btnText.textContent   = 'Sending…';
+
+      const payload = new FormData();
+      payload.append('name',      name);
+      payload.append('email',     email);
+      payload.append('attending', attending);
+      payload.append('total',     attending === 'yes' ? document.getElementById('total-count').value  : '0');
+      payload.append('adults',    attending === 'yes' ? document.getElementById('adults-count').value : '0');
+      payload.append('kids',      attending === 'yes' ? document.getElementById('kids-count').value   : '0');
+      payload.append('pet',       attending === 'yes' && document.getElementById('pet-check').checked ? 'Yes' : 'No');
+      payload.append('note',      attending === 'yes' ? (form.note ? form.note.value.trim() : '') : '');
+
+      try {
+        await fetch(SCRIPT_URL, { method: 'POST', body: payload, mode: 'no-cors' });
+        showSuccess(attending, name);
+      } catch (err) {
+        showError();
+      }
+    });
+
+    function showSuccess(attending, name) {
+      const formEl   = document.getElementById('rsvp-form');
+      const successEl = document.getElementById('form-success');
+      const headingEl = document.getElementById('success-heading');
+      const msgEl     = document.getElementById('success-message');
+
+      formEl.style.display = 'none';
+      document.getElementById('form-error').style.display = 'none';
+
+      if (attending === 'yes') {
+        headingEl.textContent = 'See you there! 🎉';
+        msgEl.textContent     = `Your RSVP is locked in, ${name.split(' ')[0]}. Get ready for the best taco day of your life.`;
+      } else {
+        headingEl.textContent = 'We hear you 😢';
+        msgEl.textContent     = `Thanks for letting us know, ${name.split(' ')[0]}. We'll save you a taco in spirit.`;
+      }
+
+      successEl.style.display = 'block';
+    }
+
+    function showError() {
+      const btn     = document.getElementById('submit-btn');
+      const spinner = document.getElementById('spinner');
+      const btnText = document.getElementById('btn-text');
+
+      btn.disabled          = false;
+      spinner.style.display = 'none';
+      btnText.textContent   = 'Send RSVP 🌮';
+
+      document.getElementById('form-error').style.display = 'block';
+    }
+
+    function resetForm() {
+      document.getElementById('form-error').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
